@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: libre franklin, arial;
+}
+
+::placeholder {
+  color: black;
+}
+
+body {
+  padding: 40px;
+  /* background-color: #d3d3d3; */
+}
+.notice {
+  margin-top: 10px;
+  background-color: lightgray;
+  padding: 30px;
+}
+
+.head {
+  color: rgb(255, 170, 1);
+  text-decoration: underline;
+  text-shadow: 4px 0px;
+  font-family: inter, arial;
+  font-size: 3em;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  font-weight: bolder;
+  /* color: rgba(8, 102, 255, 1) */
+  /* font-style: italic; */
+}
+
+select {
+  padding: 10px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+input {
+  padding: 10px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background-color: #efefef;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+input:hover {
+  background-color: white;
+  color: black;
+}
+button {
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 20px;
+  border: 1px solid lightgray;
+  font-weight: bolder;
+  background-color: rgba(8, 102, 255, 1);
+  color: white;
+
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgba(8, 102, 255, 1);
+  border: 1px solid rgba(8, 102, 255, 1);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  color: white;
+}
+.card_container {
+  /* margin: 10px; */
+  margin-top: 20px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.card {
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px;
+  height: 60vh;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.card > h3 {
+  /* background-color: #B2C8BA; */
+  background-color: lightgray;
+  padding: 20px;
+  border-radius: 4px;
+  /* box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 40px -10px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+}
+
+.card > a {
+  text-decoration: none;
+  background-color: lightgray;
+  padding: 5px 10px;
+  width: 40%;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.card > a:hover {
+  background-color: rgba(8, 102, 255, 1);
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    height: 60vh;
+  }
+}
