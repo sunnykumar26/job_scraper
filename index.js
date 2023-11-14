@@ -104,18 +104,18 @@ const main = async() => {
 
 }
 
-main();
+// main();
 
 
 
-const cron = require('node-cron');
+// const cron = require('node-cron');
 
-const job = cron.schedule('0 0 * * *', main, {
-    scheduled: true,
-    timezone: 'Asia/Kolkata'
-});
+// const job = cron.schedule('0 0 * * *', main, {
+//     scheduled: true,
+//     timezone: 'Asia/Kolkata'
+// });
 
-job.start(); 
+// job.start(); 
 
 const PORT = 4000;
 

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import data from "../../../data_scraped.json";
+// import data from "../../../data_scraped.json";
 
 // const App = () => {
 //   const [age, setAge] = useState(0); // State to hold the input age
@@ -37,6 +37,7 @@ import data from "../../../data_scraped.json";
 // export default App;
 
 const App = () => {
+  const [data, setData] = useState(null);
   const [age, setAge] = useState(null); // State to hold the input age
   const [qualification, setQualification] = useState(""); // State to hold the input qualification
   const [filteredData, setFilteredData] = useState([]); // State to hold the filtered data
@@ -68,6 +69,22 @@ const App = () => {
       handleFilterData();
     }
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:4000/scraper"); // Update with your server URL
+        const res = await response.json();
+        console.log(res);
+        setData(res);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   return (
     <div>
