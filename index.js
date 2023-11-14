@@ -105,10 +105,10 @@ job.start();
 
 const PORT = 4000;
 
-app.use(express.static(path.join(__dirname, './frontend/job_scraper_frontend/dist')));
+app.use(express.static(path.join(__dirname, '/frontend/client/dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + './frontend/job_scraper_frontend/dist/index.html'));
+  res.sendFile(path.join(__dirname + '/frontend/client/dist/index.html'));
 });
 
 
