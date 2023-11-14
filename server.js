@@ -92,6 +92,8 @@ const { main } = require("./scraper");
 const cron = require("node-cron");
 const cors = require("cors");
 const app = express();
+const path = require("path");
+require("dotenv").config();
 const PORT = process.env.PORT || 4000;
 
 let data = null; // Initialize data to null initially
@@ -138,9 +140,16 @@ app.get("/trigger-scrape", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Render Puppeteer server is up and running!");
+// app.get("/", (req, res) => {
+//   res.send("Render Puppeteer server is up and running!");
+// });
+
+app.use(express.static(path.join(__dirname, '/frontend/client/dist')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/frontend/client/dist/index.html'));
 });
+
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
