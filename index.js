@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-
+require("dotenv").config();
 const app = express();
 
 
@@ -9,9 +9,23 @@ const url = "https://www.sarkariexam.com/category/top-online-form";
 const fs = require("fs");
 
 const main = async() => {
-    const browser = await puppeteer.launch({headless: true, defaultViewport: false});
+    const browser = await puppeteer.launch({headless: true, defaultViewport: false, 
+        args: [
+            "--disable-setuid-sandbox",
+            "--no-sandbox",
+            "--single-process",
+            "--no-zygote",
+          ],
+          executablePath:
+            process.env.NODE_ENV === "production"
+              ? process.env.PUPPETEER_EXECUTABLE_PATH
+              : puppeteer.executablePath(),
+    });
+
+    
     const page = await browser.newPage();
     await page.goto(url);
+    await page.setViewport({ width: 1080, height: 1024 });
 
     await page.waitForSelector(".category-typepost div ul");
     // await page.waitForTimeout(5000);
