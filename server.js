@@ -102,7 +102,7 @@ app.use(cors());
 app.use(express.json());
 
 // Schedule the main function to run every day at 12:00 AM
-cron.schedule('0 0 * * *', async () => {
+const job = cron.schedule('0 0 * * *', async () => {
   try {
     console.log("Running the main function at 12:00 AM...");
     data = await main(); // Update the data variable with the new scraped data
@@ -114,6 +114,8 @@ cron.schedule('0 0 * * *', async () => {
   scheduled: true,
   timezone: 'Asia/Kolkata' // Adjust the timezone as needed
 });
+
+job.start();
 
 app.get("/scraper", (req, res) => {
   try {
@@ -140,15 +142,15 @@ app.get("/trigger-scrape", async (req, res) => {
   }
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Render Puppeteer server is up and running!");
-// });
-
-app.use(express.static(path.join(__dirname, '/frontend/client/dist')));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/frontend/client/dist/index.html'));
+app.get("/", (req, res) => {
+  res.send("Render Puppeteer server is up and running!");
 });
+
+// app.use(express.static(path.join(__dirname, '/frontend/client/dist')));
+
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname + '/frontend/client/dist/index.html'));
+// });
 
 
 app.listen(PORT, () => {
