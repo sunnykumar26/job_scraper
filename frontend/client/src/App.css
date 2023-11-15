@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: helvetica neue, arial;
+  font-family: arial;
 }
 
 ::placeholder {
@@ -30,6 +30,7 @@ body {
   font-weight: bolder;
   /* color: rgba(8, 102, 255, 1) */
   /* font-style: italic; */
+  font-style: italic;
 }
 
 select {

@@ -102,20 +102,20 @@ app.use(cors());
 app.use(express.json());
 
 // Schedule the main function to run every day at 12:00 AM
-const job = cron.schedule('0 0 * * *', async () => {
-  try {
-    console.log("Running the main function at 12:00 AM...");
-    data = await main(); // Update the data variable with the new scraped data
-    console.log("Main function completed.");
-  } catch (error) {
-    console.error("Error running the main function:", error);
-  }
-}, {
-  scheduled: true,
-  timezone: 'Asia/Kolkata' // Adjust the timezone as needed
-});
+// const job = cron.schedule('*/40 * * * * *', async () => {
+//   try {
+//     console.log("Running the main function at 12:00 AM...");
+//     data = await main(); // Update the data variable with the new scraped data
+//     console.log("Main function completed.");
+//   } catch (error) {
+//     console.error("Error running the main function:", error);
+//   }
+// }, {
+//   scheduled: true,
+//   timezone: 'Asia/Kolkata' // Adjust the timezone as needed
+// });
 
-job.start();
+// job.start();
 
 app.get("/scraper", (req, res) => {
   try {
@@ -131,7 +131,7 @@ app.get("/scraper", (req, res) => {
   }
 });
 
-app.get("/trigger-scrape", async (req, res) => {
+app.get("/trigger-scraper", async (req, res) => {
   try {
     console.log("Manually triggering the scraping process...");
     data = await main(); // Update the data variable with the new scraped data

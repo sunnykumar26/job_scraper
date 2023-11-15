@@ -1,40 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-// import data from "../../../data_scraped.json";
-
-// const App = () => {
-//   const [age, setAge] = useState(0); // State to hold the input age
-//   const [filteredData, setFilteredData] = useState([]); // State to hold the filtered data
-
-//   const handleInputChange = (event) => {
-//     setAge(parseInt(event.target.value)); // Update the age state with input value
-//   };
-
-//   const handleFilterData = () => {
-//     const filtered = data.filter(item => {
-//       return parseInt(item.m, 10) >= age; // Filter based on the 'm' property (age) in the JSON data
-//     });
-//     setFilteredData(filtered); // Update the filtered data state
-//   };
-
-//   return (
-//     <div>
-//       <input type="number" value={age} onChange={handleInputChange} />
-//       <button onClick={handleFilterData}>Filter</button>
-//       <ul>
-//         {filteredData.map((item, index) => (
-//           <li key={index}>
-//             <h3>{item.p}</h3>
-//             <p>Age Limit: {item.m}</p>
-//             <p>{item.q}</p>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default App;
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -73,7 +38,9 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/scraper"); // Update with your server URL
+        const response = await fetch(
+          "https://job-scraper-n67f.onrender.com/scraper"
+        ); // Update with your server URL
         const res = await response.json();
         console.log(res);
         setData(res);
@@ -85,10 +52,11 @@ const App = () => {
     fetchData();
   }, []);
 
-
   return (
     <div>
-      <header className="head">GOVT 🛞 <span style={{fontFamily:"inter", color:"green"}}>JOBS</span></header>
+      <header className="head">
+        sarkari<span style={{ fontFamily: "inter", color: "green" }}> <i>jobs</i></span>
+      </header>
       <input
         placeholder="Age"
         type="number"
@@ -96,14 +64,6 @@ const App = () => {
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
       />
-{/* 
-      <input
-        placeholder="QUALIFICATION"
-        type="text"
-        value={qualification}
-        onChange={handleQualificationChange}
-        onKeyPress={handleKeyPress}
-      /> */}
 
       <select
         value={qualification}
@@ -143,17 +103,24 @@ const App = () => {
               Apply on official site
             </a>
           </div>
-
-          
         ))}
       </div>
       <footer className="notice">
         <h1>Easy access to your latest active Indian govt jobs </h1>
-          <li>for displaying all the active posts just press <u> search </u> button</li>
-          <li>for displaying according to eligibility then enter the Age and choose the qualification </li>
+        <li>
+          for displaying all the active posts just press <u> search </u> button
+        </li>
+        <li>
+          for displaying according to eligibility then enter the Age and choose
+          the qualification{" "}
+        </li>
         <br />
         <hr />
-        <p>* all the posts shown here are currently active during the time means you can come and check for the latest jobs released by govt of India, do not worry you can trust us as the jobs are updated every day.</p>
+        <p>
+          * all the posts shown here are currently active during the time means
+          you can come and check for the latest jobs released by govt of India,
+          do not worry you can trust us as the jobs are updated every day.
+        </p>
       </footer>
     </div>
   );
