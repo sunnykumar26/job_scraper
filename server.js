@@ -54,7 +54,7 @@ app.get("/scraper", async(req, res) => {
   try {
     // Check if data is available
     const dataFromDatabase = await scrapedData.findOne();
-    console.log(dataFromDatabase);
+    // console.log(dataFromDatabase);
 
     if (dataFromDatabase) {
       res.json(dataFromDatabase);
