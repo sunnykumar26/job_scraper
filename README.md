@@ -27,7 +27,7 @@ Before running the backend server, ensure you have the following prerequisites i
    npm install
    ```
 3.Run frontend
-  ```
+   ```
    cd frontend
    cd client
    npm run dev
