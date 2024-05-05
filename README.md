@@ -1,9 +1,7 @@
-# Job Scraper Backend
-## The Job Scaper uses puppeteer for scraping the job information
 
-# Job Scraper Backend
+# Job Scraper
 
-Job Scraper Backend is the server-side component of the Job Scraper application. It provides functionality for web scraping job information from a specific website and storing the scraped data in a MongoDB database. This repository contains the code for handling requests, managing data, and implementing business logic.
+Job Scraper is the server-side component of the Job Scraper application. It provides functionality for web scraping job information from a specific website and storing the scraped data in a MongoDB database. This repository contains the code for handling requests, managing data, and implementing business logic.
 
 ## Overview
 
